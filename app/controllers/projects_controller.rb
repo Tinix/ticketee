@@ -34,9 +34,15 @@ class ProjectsController < ApplicationController
       flash[:notice] = 'Project has been updated.'
       redirect_to @project
     else
-      flash.now[:alert] = "Project has not been updated."
+      flash.now[:alert] = 'Project has not been updated.'
       render 'edit'
     end
+  end
+
+  def destroy
+    @project.destroy
+    flash[:notice] = 'Project has been deleted.'
+    redirect_to projects_path
   end
 
   private
