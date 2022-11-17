@@ -17,8 +17,8 @@ RSpec.feature 'Users con create new projects' do
     project = Project.find_by(name: 'Visual Studio Code')
     expect(page.current_url).to eq project_url(project)
 
-    title = 'Visual Studio Code - Projects - Ticketee'
-    expect(page).to have_title title
+    # title = 'Visual Studio Code - Projects - Ticketee'
+    # expect(page).to have_title title
   end
 
   scenario 'when providing invalid attributes' do
@@ -28,6 +28,6 @@ RSpec.feature 'Users con create new projects' do
     click_button 'Create Project'
 
     expect(page).to have_content('Project has not been created.')
-    expect(page).to have_content("Name can't be  blanck")
+    expect(page).to have_content("Name can't be blank")
   end
 end
