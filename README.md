@@ -12,4 +12,3 @@ Things you may want to cover:
 * Node ~> 16.0.0
 * Yarn ~> 1.22.19
 * Database sqlite3 ~> 1.4
- pag 121
