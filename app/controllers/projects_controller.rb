@@ -13,8 +13,7 @@ class ProjectsController < ApplicationController
 
   def edit; end
 
-  def show
-  end
+  def show; end
 
   def create
     @project = Project.new(project_params)
@@ -49,7 +48,7 @@ class ProjectsController < ApplicationController
   def set_project
     @project = Project.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "The project you were looking for could not be found."
+    flash[:alert] = 'The project you were looking for could not be found.'
     redirect_to projects_path
   end
 
