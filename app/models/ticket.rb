@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Ticket < ApplicationRecord
-  # Relations
+  # Associations
   belongs_to :project
 
   # Validations

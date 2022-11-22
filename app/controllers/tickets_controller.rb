@@ -25,7 +25,7 @@ class TicketsController < ApplicationController
   end
 
   def update
-    if @ticket.update(tickets_params)
+    if @ticket.update(ticket_params)
       flash[:notice] = 'Ticket has been updated.'
       redirect_to [@project, @ticket]
     else
