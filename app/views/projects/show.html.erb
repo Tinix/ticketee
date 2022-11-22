@@ -14,3 +14,12 @@
   method: :delete,
   data: { confirm: "Are you sure you want to delete this project?" }
 %>
+
+<ul class="tickets">
+  <% @project.tickets.each do |ticket| %>
+    <li>
+      #<%= ticket.id %> -
+      <%= link_to ticket.name, [@project, ticket] %>
+    </li>
+  <% end %>
+</ul>
