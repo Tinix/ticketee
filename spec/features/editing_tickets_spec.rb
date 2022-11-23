@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+# !/usr/bin/env ruby
 #
 # editing_tickets_spec.rb
 # Copyright (C) 2022 tinix <tinix@archlinux>
