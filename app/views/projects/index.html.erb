@@ -1,6 +1,10 @@
-<h1>Projects</h1>
-
-<%= link_to "New Project", new_project_path %>
+<div class="page-header">
+  <h1>Projects</h1>
+  <ul>
+    <li><%= link_to fa_icon("plus") + " New Project", new_project_path,
+      class: "btn btn-success" %></li>
+  </ul>
+</div>
 
 <div class="projects">
   <% @projects.each do |project| %>

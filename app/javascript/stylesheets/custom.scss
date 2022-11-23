@@ -1,0 +1,74 @@
+
+header {
+	@extend .pb-2, .mt-4, .mb-2, .border-bottom, .row;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@extend .col-sm-12, .col-md-6;
+	}
+	ul.actions {
+		@extend .col-sm-12, .col-md-6;
+		@extend .list-unstyled, .list-inline;
+		li {
+			@extend .list-inline-item;
+		}
+		text-align: right;
+	}
+}
+
+a.new {
+	@extend .btn, .btn-success;
+	&:before {
+		font-family: "FontAwesome";
+		@extend .fa-plus;
+		padding-right: 0.5em;
+	}
+}
+
+a.edit {
+	@extend .btn, .btn-primary;
+	&:before {
+		font-family: "FontAwesome";
+		@extend .fa-pencil;
+		padding-right: 0.5em;
+	}
+}
+a.delete {
+	@extend .btn, .btn-danger;
+	&:before {
+		font-family: "FontAwesome";
+		@extend .fa-trash;
+		padding-right: 0.5em;
+	}
+}
+
+a.new,
+a.edit,
+a.delete {
+	@extend .btn;
+	&:before {
+		font-family: "FontAwesome";
+		padding-right: 0.5em;
+	}
+}
+a.new {
+	@extend .btn-success;
+	&:before {
+		@extend .fa-plus;
+	}
+}
+a.edit {
+	@extend .btn-primary;
+	&:before {
+		@extend .fa-pencil;
+	}
+}
+a.delete {
+	@extend .btn-danger;
+	&:before {
+		@extend .fa-trash;
+	}
+}

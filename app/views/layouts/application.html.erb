@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+    <%= render 'shared/head' %>
   </head>
 
   <body>
-    <% flash.each do |key, message| %>
-      <div><%= message %></div>
-    <% end %>
-    <%= yield %>
+    <%= render "shared/navbar" %>
+    <div class="container">
+      <% flash.each do |key, message| %>
+        <div class="alert alert<%= key %>">
+          <%= message %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

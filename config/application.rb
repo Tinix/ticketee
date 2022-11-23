@@ -10,7 +10,7 @@ Bundler.require(*Rails.groups)
 
 module Ticketee3
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
+    config.application_name = Rails.application.class.module_parent_name
     config.load_defaults 6.1
 
     # Configuration for the application, engines, and railties goes here.
