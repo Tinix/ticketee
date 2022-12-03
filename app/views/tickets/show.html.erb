@@ -1,3 +1,16 @@
+<table class="attributes">
+  <tr>
+    <th>Author</th>
+    <td><%= @ticket.author.email %></td>
+  </tr>
+  <tr>
+    <th>Created:</th>
+    <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
+  </tr>
+</table>
+
+<hr>
+
 <div class="ticket">
 	<header>
 		<h1><%= @project.name %></h1>
