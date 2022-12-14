@@ -2,12 +2,13 @@
 
 Rails.application.routes.draw do
   namespace :admin do
-    get 'application/index'
+    root 'application#index'
+    resources :projects, except: %i[index show]
   end
 
   devise_for :users
 
-  resources :projects do
+  resources :projects, only: %i[index show] do
     resources :tickets
   end
 

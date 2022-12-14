@@ -16,11 +16,11 @@
 
   <ul class="actions">
     <li><%= link_to fa_icon("pencil") + ' Edit Project', 
-      edit_project_path(@project),
+      edit_admin_project_path(@project),
       class: "btn btn-success" %></li>
     <br />
     <li><%= link_to fa_icon("trash") + ' Delete Project',
-      project_path(@project),
+      admin_project_path(@project),
       method: :delete,
       data: { confirm: "Are you sure you want to delete this project?" },
       class: "btn btn-danger" %>
