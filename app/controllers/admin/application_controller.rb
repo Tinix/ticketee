@@ -9,10 +9,10 @@ module Admin
     def authorize_admin!
       authenticate_user!
 
-      unless current_user.admin?
-        flash[:alert] = 'You must be an Admin to do that.'
-        redirect_to root_path
-      end
+      return if current_user.admin?
+
+      flash[:alert] = 'You must be an Admin to do that.'
+      redirect_to root_path
     end
   end
 end

@@ -1,0 +1,13 @@
+<header>
+	<h1>Users</h1>
+	<ul class="actions">
+		<li>
+			<%= link_to fa_icon("plus") +  " New User", new_admin_user_path, class: "btn btn-success" %>
+		</li>
+	</ul>
+</header>
+<ul>
+	<% @users.each do |user| %>
+		<li><%= link_to user.email, [:admin, user] %></li>
+	<% end %>
+</ul>
