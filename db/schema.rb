@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_221_203_233_315) do
+ActiveRecord::Schema.define(version: 20_221_220_222_700) do
   create_table 'projects', force: :cascade do |t|
     t.string 'name'
     t.string 'description'
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20_221_203_233_315) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.boolean 'admin', default: false
+    t.datetime 'archived_at'
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
