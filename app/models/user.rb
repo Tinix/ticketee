@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def archive!
     update(archived_at: Time.now)
   end
+
+  def active_for_authentication?
+    super && archived_at.nil?
+  end
 end
