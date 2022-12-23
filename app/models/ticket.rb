@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Ticket < ApplicationRecord
-  has_one_attached :attachment
+  has_many_attached :attachments
 
   # Associations
   belongs_to :project

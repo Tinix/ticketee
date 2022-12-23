@@ -24,6 +24,8 @@ import { Tooltip, Popover } from "bootstrap"
 // The stylesheet location we created earlier
 require("../stylesheets/application.scss")
 
+require("../src/dropzone");
+
 // If you're using Turbolinks. Otherwise simply use: jQuery(function () {
 document.addEventListener("turbolinks:load", () => {
     // Both of these are from the Bootstrap 5 docs
