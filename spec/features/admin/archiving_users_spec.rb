@@ -25,9 +25,9 @@ RSpec.feature 'An admin can archives users' do
     expect(page).not_to have_content user.email
   end
 
-	scenario "but cannot archive themselves" do
-		visit admin_user_path(admin_user)
-		click_link "Archive User"
-		expect(page).to have_content "You cannot archive yourself!"
-	end
+  scenario 'but cannot archive themselves' do
+    visit admin_user_path(admin_user)
+    click_link 'Archive User'
+    expect(page).to have_content 'You cannot archive yourself!'
+  end
 end

@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  scope :active, lambda { where(archived_at: nil) }
+  scope :active, -> { where(archived_at: nil) }
 
   def to_s
     "#{email} (#{admin? ? 'Admin' : 'User'})"

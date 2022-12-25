@@ -42,7 +42,7 @@ module Admin
 
     def archive
       if @user == current_user
-        flash[:alert] = "You cannot archive yourself!"
+        flash[:alert] = 'You cannot archive yourself!'
       else
         @user.archive!
         flash[:notice] = 'User has been archived.'

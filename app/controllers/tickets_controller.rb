@@ -15,9 +15,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = @project.tickets.build(ticket_params)
     @ticket.author = current_user
-    if params[:attachments].present?
-      @ticket.attachments.attach(params[:attachments])
-    end
+    @ticket.attachments.attach(params[:attachments]) if params[:attachments].present?
 
     if @ticket.save
       flash[:notice] = 'Ticket has been created.'
@@ -30,6 +28,7 @@ class TicketsController < ApplicationController
 
   def update
     if @ticket.update(ticket_params)
+      @ticket.attachments.attach(params[:attachments]) if params[:attachments].present?
       flash[:notice] = 'Ticket has been updated.'
       redirect_to [@project, @ticket]
     else

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :projects, only: [:index, :show, :edit, :update] do
+  resources :projects, only: %i[index show edit update] do
     resources :tickets do
       collection do
         post :upload_file
