@@ -40,3 +40,18 @@
   <% end %>
 </div>
 
+<div class="comments">
+	<header>
+		<h3>Comments</h3>
+	</header>
+
+	<% comments = @ticket.comments.persisted.ordered %>
+	<% if comments.any? %>
+		<%= render comments %>
+	<% else %>
+		<p>There are no comments for this ticket.</p>
+	<% end %>
+
+	<%= render "comments/form", ticket: @ticket, comment: @comment %>
+</div>
+

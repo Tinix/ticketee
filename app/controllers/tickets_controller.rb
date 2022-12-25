@@ -8,7 +8,9 @@ class TicketsController < ApplicationController
     @ticket = @project.tickets.build
   end
 
-  def show; end
+  def show
+    @comment = @ticket.comments.build
+  end
 
   def edit; end
 
