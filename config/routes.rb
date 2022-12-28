@@ -22,9 +22,9 @@ Rails.application.routes.draw do
     end
   end
 
-	scope path: "tickets/:ticket_id", as: :ticket do
-		resources :comments, only: [:create]
-	end
+  scope path: 'tickets/:ticket_id', as: :ticket do
+    resources :comments, only: [:create]
+  end
 
   root to: 'projects#index'
 end

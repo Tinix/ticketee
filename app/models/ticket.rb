@@ -3,11 +3,12 @@
 class Ticket < ApplicationRecord
   has_many_attached :attachments
 
-  has_many :comments, dependent: :destroy
-
   # Associations
+  has_many :comments, dependent: :destroy
   belongs_to :project
   belongs_to :author, class_name: 'User'
+  belongs_to :state, optional: true
+  
 
   # Validations
   validates :name, presence: true

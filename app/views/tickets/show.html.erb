@@ -55,3 +55,12 @@
 	<%= render "comments/form", ticket: @ticket, comment: @comment %>
 </div>
 
+<table class='attributes'>
+  ...
+  <% if @ticket.state.present? %>
+    <tr>
+      <th>State:</th>
+      <td><%= render @ticket.state %></td>
+    </tr>
+  <% end %>
+</table>
