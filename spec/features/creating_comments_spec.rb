@@ -48,6 +48,8 @@ RSpec.feature 'Users can comment on tickets' do
       fill_in "Text", with: "This is a real issue"
       select "Open", from: "State"
       click_button "Create Comment"
+
+      expect(page).to have_content "state set to Open"
     end
 
     expect(page).to have_content "Comment has been created."

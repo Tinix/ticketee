@@ -5,26 +5,19 @@
 @import 'bootstrap.css';
 
 .comment {
-  // @extend .border, .rounded, .mb-2;
-	// @extend .mt-4;
+  @extend .border, .rounded, .mb-2;
 
   border-width: 2px;
   .author {
-    // @extend .text-secondary, .font-italic, .p-2;
+    @extend .text-secondary, .font-italic, .p-2;
     background: primary;
     // background: lighten($blue, 45);
-    // border-bottom: 1px solid lighten($blue, 35);
-    border-bottom: 1px solid --bs-border-color;
+    border-bottom: 1px solid lighten($blue, 35);
   }
   .text {
-    // @extend .p-2;
+    @extend .p-2;
   }
   p:last-of-type {
     margin-bottom: 0;
-  }	
+  }
 }
-
-.state_change {
-	// @extend .my-2;
-}
-

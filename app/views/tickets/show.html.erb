@@ -46,8 +46,16 @@
 	</header>
 
 	<% comments = @ticket.comments.persisted.ordered %>
-	<% if comments.any? %>
-		<%= render comments %>
+  <% if comments.any? %>
+    <% state = nil %>
+    <% comments.each do |comment| %>
+      <%= render comments %>
+      <% if comment.state != state %>
+        <%= render "state_change", previous_state: state, new_state: comment.state %>
+        <% state = comment.state %>
+      <% end  %>
+    <% end  %>
+
 	<% else %>
 		<p>There are no comments for this ticket.</p>
 	<% end %>
