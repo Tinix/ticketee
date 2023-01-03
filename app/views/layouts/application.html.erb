@@ -2,6 +2,13 @@
 <html>
   <head>
     <%= render 'shared/head' %>
+    <style>
+    <% State.all.each do |state| %>
+      .state-<%= state.name.parameterize %> {
+      background-color: <%= state.color %>;
+    }
+  <% end %>
+</style>
   </head>
 
   <body>
