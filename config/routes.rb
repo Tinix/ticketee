@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     root 'application#index'
+    resources :states, only: [:index, :new, :create]
 
     resources :projects, except: %i[index show]
     resources :users do
