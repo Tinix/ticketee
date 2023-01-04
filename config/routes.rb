@@ -3,7 +3,11 @@
 Rails.application.routes.draw do
   namespace :admin do
     root 'application#index'
-    resources :states, only: [:index, :new, :create]
+    resources :states, only: [:index, :new, :create] do
+      member do
+        patch :make_default
+      end
+    end
 
     resources :projects, except: %i[index show]
     resources :users do
