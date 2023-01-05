@@ -63,9 +63,7 @@ gem 'faker', '~> 3.0'
 gem 'pry', '~> 0.14.1'
 gem 'pry-rails', '~> 0.3.9'
 gem 'rspec-rails', '~> 6.0'
-
 gem 'font-awesome-rails', '= 4.7.0.6'
-
 gem 'bootstrap_form', '= 4.5.0'
-
 gem 'devise', '~> 4.8'
+gem "email_spec", "~> 2.2", require: false
