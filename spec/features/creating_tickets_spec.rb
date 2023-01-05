@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # creating_tickets_spec.rb
 # Copyright (C) 2022 tinix <tinix@archlinux>
@@ -10,6 +9,7 @@ require 'rails_helper'
 
 RSpec.feature 'Users can create new tickets' do
   let(:user) { FactoryBot.create(:user) }
+  let!(:state) { FactoryBot.create :state, name: "New", default: true }
 
   before do
     login_as(user)
@@ -27,6 +27,7 @@ RSpec.feature 'Users can create new tickets' do
     expect(page).to have_content 'Ticket has been created.'
 
     # within(".ticket") do
+    # expect(page).to have_content "State: New"
     # 	expect(page).to have_content "Author: #{user.email}"
     # end
   end
@@ -51,9 +52,9 @@ RSpec.feature 'Users can create new tickets' do
     fill_in 'Name', with: 'Add documentation for blink tag'
     fill_in 'Description', with: 'The blink tag has a speed attribute'
 
-    attach_file('spec/fixtures/gradient.txt', class: 'dz-hidden-input', visible: false)
-    attach_file('spec/fixtures/speed.txt', class: 'dz-hidden-input', visible: false)
-    attach_file('spec/fixtures/spin.txt', class: 'dz-hidden-input', visible: false)
+    # attach_file('spec/fixtures/gradient.txt', class: 'dz-hidden-input', visible: false)
+    # attach_file('spec/fixtures/speed.txt', class: 'dz-hidden-input', visible: false)
+    # attach_file('spec/fixtures/spin.txt', class: 'dz-hidden-input', visible: false)
 
     click_button 'Create Ticket'
 

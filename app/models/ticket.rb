@@ -13,4 +13,10 @@ class Ticket < ApplicationRecord
   # Validations
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 10, maximum: 1000 }
+  
+  before_create :assign_default_state
+
+  def assign_default_state
+    self.state ||= State.default
+  end
 end
