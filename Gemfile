@@ -67,3 +67,4 @@ gem 'font-awesome-rails', '= 4.7.0.6'
 gem 'pry', '~> 0.14.1'
 gem 'pry-rails', '~> 0.3.9'
 gem 'rspec-rails', '~> 6.0'
+gem "premailer-rails", "~> 1.12"
