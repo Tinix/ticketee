@@ -1,17 +1,18 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.feature "Admin can manage states" do
+require 'rails_helper'
 
-  let!(:state) { FactoryBot.create :state, name: "New"}
+RSpec.feature 'Admin can manage states' do
+  let!(:state) { FactoryBot.create :state, name: 'New' }
 
   before do
     login_as(FactoryBot.create(:user, :admin))
     visit admin_states_path
   end
 
-  scenario "and mark a state as default" do
-    within list_item("New") do
-      click_link "Make Default"
+  scenario 'and mark a state as default' do
+    within list_item('New') do
+      click_link 'Make Default'
     end
 
     expect(page).to have_content " 'New' is now the default state."

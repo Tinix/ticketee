@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     root 'application#index'
-    resources :states, only: [:index, :new, :create] do
+    resources :states, only: %i[index new create] do
       member do
         patch :make_default
       end

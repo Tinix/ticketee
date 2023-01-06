@@ -41,20 +41,20 @@ RSpec.feature 'Users can comment on tickets' do
   end
 
   scenario "when changing a ticket's state" do
-    FactoryBot.create(:state, name: "Open")
+    FactoryBot.create(:state, name: 'Open')
     visit project_ticket_path(project, ticket)
 
-    within(".comments") do
-      fill_in "Text", with: "This is a real issue"
-      select "Open", from: "State"
-      click_button "Create Comment"
+    within('.comments') do
+      fill_in 'Text', with: 'This is a real issue'
+      select 'Open', from: 'State'
+      click_button 'Create Comment'
 
-      expect(page).to have_content "state set to Open"
+      expect(page).to have_content 'state set to Open'
     end
 
-    expect(page).to have_content "Comment has been created."
-    within(".ticket .attributes .state") do
-      expect(page).to have_content "Open"
+    expect(page).to have_content 'Comment has been created.'
+    within('.ticket .attributes .state') do
+      expect(page).to have_content 'Open'
     end
   end
 end

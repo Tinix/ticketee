@@ -1,44 +1,46 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.feature "Users can receive notifications about ticket updates" do
-	include ActiveJob::TestHelper
+require 'rails_helper'
 
-	let(:alice) { FactoryBot.create(:user, email: "alice@example.com") }
-	let(:bob) { FactoryBot.create(:user, email: "bob@example.com") }
-	let(:project) { FactoryBot.create(:project) }
+RSpec.feature 'Users can receive notifications about ticket updates' do
+  include ActiveJob::TestHelper
 
-	let(:ticket) do
-		FactoryBot.create(:ticket, project: project, author: alice)
-	end
+  let(:alice) { FactoryBot.create(:user, email: 'alice@example.com') }
+  let(:bob) { FactoryBot.create(:user, email: 'bob@example.com') }
+  let(:project) { FactoryBot.create(:project) }
 
-	before do
-		ticket.watchers << alice
+  let(:ticket) do
+    FactoryBot.create(:ticket, project: project, author: alice)
+  end
 
-		login_as(bob)
-		visit project_ticket_path(project, ticket)
-	end
+  before do
+    ticket.watchers << alice
 
-	scenario "ticket authors automatically receive notifications" do
-		fill_in "Text", with: "Is it out yet?"
-		click_button "Create Comment"
+    login_as(bob)
+    visit project_ticket_path(project, ticket)
+  end
 
-		perform_enqueued_jobs
+  scenario 'ticket authors automatically receive notifications' do
+    fill_in 'Text', with: 'Is it out yet?'
+    click_button 'Create Comment'
 
-		email = find_email!(alice.email)
-		expected_subject = "[Ticketee] #{project.name} - #{ticket.name}"
-		expect(email.subject).to eq expected_subject
+    perform_enqueued_jobs
 
-		click_email_link_matching(/projects/, email)
-		expect(current_path).to eq project_ticket_path(project, ticket)
-	end
+    email = find_email!(alice.email)
+    expected_subject = "[Ticketee] #{project.name} - #{ticket.name}"
+    expect(email.subject).to eq expected_subject
 
-	scenario "comment authors do not receive emails" do
-		fill_in "Text", with: "Is it out yet?"
-		click_button "Create Comment"
+    click_email_link_matching(/projects/, email)
+    expect(current_path).to eq project_ticket_path(project, ticket)
+  end
 
-		perform_enqueued_jobs
+  scenario 'comment authors do not receive emails' do
+    fill_in 'Text', with: 'Is it out yet?'
+    click_button 'Create Comment'
 
-		email = find_email(bob.email)
-		expect(email).to be_nil
-	end
+    perform_enqueued_jobs
+
+    email = find_email(bob.email)
+    expect(email).to be_nil
+  end
 end
