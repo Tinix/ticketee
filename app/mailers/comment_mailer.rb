@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentMailer < ApplicationMailer
   def new_comment
     @comment = params[:comment]
@@ -5,7 +7,7 @@ class CommentMailer < ApplicationMailer
     @ticket = @comment.ticket
     @project = @ticket.project
 
-    subject = '#{@project.name} - #{@ticket.name}'
+    subject = "#@project.name} - #@ticket.name}"
     mail(to: @user.email, subject: subject)
   end
 end

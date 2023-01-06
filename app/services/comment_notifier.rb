@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # comment_notifier.rb
 # Copyright (C) 2023 tinix <tinix@archlinux>
