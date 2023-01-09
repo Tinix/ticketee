@@ -2,9 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 //
+@import "font-awesome";
+
 
 .state {
 	display: inline-block;
 	font-size: 110%;
 	color: white;
 }
+
+// .watch,
+// .unwatch {
+// 	@extend .btn, .btn-sm, .d-block;
+// 	font-weight: bold;
+// 	&:before {
+// 		font-family: "FontAwesome";
+// 		padding-right: 0.5em;
+// 	}
+// }
+// .watch {
+// 	@extend .btn-success;
+// 	&:before {
+// 		@extend .fa-eye;
+// 	}
+// }
+// .unwatch {
+// 	@extend .btn-danger;
+// 	&:before {
+// 		@extend .fa-eye-slash;
+// 	}
+// }

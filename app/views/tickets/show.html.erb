@@ -60,15 +60,23 @@
 		<p>There are no comments for this ticket.</p>
 	<% end %>
 
-	<%= render "comments/form", ticket: @ticket, comment: @comment %>
+  <%= render "comments/form", ticket: @ticket, comment: @comment %>
 </div>
 
-<table class='attributes'>
-  ...
-  <% if @ticket.state.present? %>
+<div class="container">
+  <table class='attributes'>
+    ...
+    <% if @ticket.state.present? %>
+      <tr>
+        <th>State:</th>
+        <td><%= render @ticket.state %></td>
+      </tr>
+    <% end %>
     <tr>
-      <th>State:</th>
-      <td><%= render @ticket.state %></td>
-    </tr>
-  <% end %>
-</table>
+      <th>Watchers:</th>
+      <td class="watchers">
+        <%= toggle_watching_button(@ticket) %>
+        <%= @ticket.watchers.map(&:email).to_sentence %>
+      </td>
+  </table>
+</div>
