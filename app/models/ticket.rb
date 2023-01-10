@@ -5,6 +5,7 @@ class Ticket < ApplicationRecord
 
   # Associations
   has_many :comments, dependent: :destroy
+  has_and_belongs_to_many :tags
   belongs_to :project
   belongs_to :author, class_name: 'User'
   belongs_to :state, optional: true

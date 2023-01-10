@@ -72,6 +72,17 @@
         <td><%= render @ticket.state %></td>
       </tr>
     <% end %>
+
+    <% if @ticket.tags.any? %>
+      <tr>
+        <th>Tags:</th>
+        <td class="tags">
+          <%= render 'tags/tags' %>
+          <%= @ticket.tags %>
+        </td>
+      </tr>
+    <% end %>
+
     <tr>
       <th>Watchers:</th>
       <td class="watchers">

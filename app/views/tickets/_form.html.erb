@@ -1,4 +1,4 @@
-<%= bootstrap_form_with(model: [project, ticket], local: true) do |form| %>
+<%= bootstrap_form_with(model: [project, ticket], local: true, label_errors: true) do |form| %>
   <% if  ticket.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ticket.errors.count, "error") %>
@@ -22,7 +22,11 @@
     <% upload_url = upload_file_project_tickets_path(project) %>
     <div class="dropzone uploader mb-2" data-url="<%= upload_url %>"></div>
   </p>
-
+  <div class="form-group">
+    <%= label_tag :tag_names, "Tags names" %>
+    <%= text_field_tag :tag_names, "", class: "form-control" %>
+  </div>
+  <br /> 
   <%= form.primary %>
 
 <% end %>
